@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 업무 지시서(프롬프트) 173 | 김유성 프롬프트 팩 · 유쌤클래스</title>
+<meta name="description" content="AI 프롬프트(지시서) 173장 무료 제공. 복사해서 붙여넣으면 바로 쓰는 업무용 프롬프트 템플릿 — 공통 업무부터 이미지·영상·음악, 소상공인·농업·시니어·강사까지 10개 분야.">
+<meta property="og:title" content="AI 업무 지시서(프롬프트) 173 | 김유성 프롬프트 팩">
+<meta property="og:description" content="AI 프롬프트(지시서) 173장 무료 제공. 이미지·영상·음악을 포함한 10개 분야별 업무 프롬프트 템플릿.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dandelionmedia.github.io/yussam-prompt-pack/">
+<meta property="og:site_name" content="김유성 프롬프트 팩 · 유쌤클래스">
+<meta property="og:locale" content="ko_KR">
+<link rel="canonical" href="https://dandelionmedia.github.io/yussam-prompt-pack/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","url":"https://dandelionmedia.github.io/yussam-prompt-pack/","name":"AI 업무 지시서(프롬프트) — 김유성 프롬프트 팩","description":"복사해서 붙여넣으면 바로 쓰는 업무용 프롬프트 173장. 10개 분야, 9개 상황, 검색.","inLanguage":"ko","publisher":{"@type":"Organization","name":"유쌤클래스","url":"https://www.yussamclass.com/"},"author":{"@type":"Person","name":"김유성","url":"https://www.yussamclass.com/32"}}
+</script>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{
+  --navy:#002D5A;
+  --navy-deep:#001C3A;
+  --teal:#017A84;
+  --gold:#BF9343;
+  --ink:#12202F;
+  --muted:#5A6876;
+  --paper:#F4F6F8;
+  --line:#DDE4EA;
+  --white:#FFFFFF;
+  --radius:4px;
+  --sans:"Pretendard Variable",Pretendard,-apple-system,"Malgun Gothic",sans-serif;
+  --mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+
+  /* 글자 눈금 8단. 이 밖의 크기를 새로 만들지 않는다.
+     읽는 사람이 시니어·소상공인·농업인이다. 본문은 16px 아래로 내려가지 않는다.
+     화면에 보이는 어떤 글자도 12.5px보다 작지 않다. */
+  --fs-xs:12.5px;   /* 문서번호, 대문자 라벨 */
+  --fs-sm:14.5px;   /* 힌트, 주석, 꼬리말 */
+  --fs-md:16px;     /* 본문 기본 */
+  --fs-lg:17.5px;   /* 지시서 본문, 강조 문단 */
+  --fs-xl:19.5px;   /* 카드·행 제목 */
+  --fs-2xl:23px;    /* 구역 제목 */
+  --fs-3xl:27px;    /* 상세 화면 제목 */
+  --fs-hero:clamp(30px,4.4vw,46px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:var(--sans);
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{width:min(1120px,92vw);margin:0 auto}
+
+/* ---------- 화면 층 ---------- */
+.view{display:none}
+.view.on{display:block}
+#view-detail{padding-bottom:104px}
+
+/* ---------- 상단 바 ---------- */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(0,45,90,.97);
+  backdrop-filter:saturate(140%) blur(6px);
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+.topbar .wrap{display:flex;align-items:center;gap:16px;height:60px}
+.brand{display:flex;align-items:baseline;gap:10px;color:#fff;text-decoration:none;flex:none;white-space:nowrap}
+.brand b{font-weight:800;letter-spacing:-.02em;font-size:var(--fs-xl)}
+.brand span{font-size:var(--fs-sm);color:#8FC7CD;font-weight:600;letter-spacing:-.01em}
+/* 좁은 화면에서는 감추지 않고 두 줄로 세운다. 누가 만든 것인지가 늘 보여야 한다. */
+@media(max-width:560px){
+  .brand{flex-direction:column;align-items:flex-start;gap:1px}
+  .brand b{font-size:var(--fs-lg)}
+  .brand span{font-size:var(--fs-xs)}
+}
+.topbar nav{margin-left:auto;display:flex;align-items:center;gap:16px}
+.topbar nav{flex:1;display:flex;align-items:center;gap:16px;min-width:0}
+.topbar .btn-ask{flex:none;white-space:nowrap}
+.navlinks{display:flex;flex:1;justify-content:center;align-items:center;gap:6px}
+.topbar nav a,.topbar nav .navlink{color:#E6EEF6;text-decoration:none;font-size:16px;font-weight:800;letter-spacing:-.01em}
+.navlink{background:none;border:none;font-family:var(--sans);cursor:pointer;padding:8px 12px;border-radius:999px;white-space:nowrap;transition:background .15s}
+.navlinks .navlink:hover{background:rgba(255,255,255,.12)}
+/* 좁은 화면에서는 접었다 펴는 차림표로 바꾼다. 감추기만 하면 갈 곳이 사라진다. */
+.navtoggle{
+  display:none;background:none;border:1px solid rgba(255,255,255,.4);color:#fff;
+  /* 18px는 눈금 밖 값이다. 글이 아니라 ☰ 기호 하나의 크기다. */
+  border-radius:var(--radius);font-size:18px;line-height:1;padding:8px 11px;cursor:pointer;
+}
+.navtoggle:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+@media(max-width:1080px){
+  .navtoggle{display:block}
+  .navlinks{
+    display:none;position:absolute;top:60px;left:0;right:0;
+    flex-direction:column;align-items:stretch;gap:0;
+    background:var(--navy-deep);border-bottom:1px solid rgba(255,255,255,.16);
+    box-shadow:0 14px 30px rgba(0,10,25,.35);padding:6px 0;
+  }
+  .navlinks.on{display:flex}
+  .navlinks .navlink{
+    padding:14px 6vw;text-align:left;font-size:var(--fs-lg);font-weight:600;color:#DCE7F0;
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .navlinks .navlink:last-child{border-bottom:none}
+  .navlinks .navlink:hover{background:rgba(255,255,255,.08);color:#fff}
+}
+button.brand{background:none;border:none;cursor:pointer;font-family:var(--sans);text-align:left}
+.topbar nav a:hover,.topbar nav .navlink:hover{color:#fff}
+.navlinks .navpill{padding:7px 14px;border-radius:999px;font-weight:900}
+.topbar nav a.navpill-teal{background:linear-gradient(135deg,#017A84,#0AA2AE);color:#fff;box-shadow:0 6px 16px rgba(1,122,132,.35)}
+.navlinks .navpill-teal:hover{background:linear-gradient(135deg,#0AA2AE,#017A84)}
+.topbar nav a.navpill-gold{border:1.5px solid #E2C078;color:#F6E3B4;background:rgba(191,147,67,.18)}
+.topbar nav a.navpill-gold:hover{background:rgba(191,147,67,.32);color:#fff}
+@media(max-width:1080px){.navlinks .navpill{border-radius:0;background:none;box-shadow:none;border:none}.navlinks .navpill-teal{color:#7FE0E8}.navlinks .navpill-gold{color:#F6E3B4}}
+
+.btn-ask{
+  background:linear-gradient(135deg,#d6a042,#b77c1e);color:#fff !important;
+  padding:7px 14px;border-radius:999px;
+  font-weight:900;font-size:16px;letter-spacing:-.01em;text-decoration:none;
+  box-shadow:0 6px 16px rgba(201,146,46,.3);
+}
+.btn-ask:hover{background:linear-gradient(135deg,#e0ad50,#c48a2a)}
+@media(max-width:760px){.topbar nav .hide-sm{display:none}}
+
+/* ---------- 2·3층 위치 바 ---------- */
+.subbar{
+  position:sticky;top:60px;z-index:40;
+  background:#fff;border-bottom:1px solid var(--line);
+}
+.subbar .wrap{display:flex;align-items:center;gap:14px;min-height:52px;padding:8px 0}
+.back{
+  border:1px solid var(--line);background:#fff;color:var(--navy);
+  padding:7px 13px 7px 10px;border-radius:var(--radius);
+  font-family:var(--sans);font-size:var(--fs-md);font-weight:700;cursor:pointer;
+  flex:0 0 auto;
+}
+.back:hover{border-color:var(--navy)}
+.crumb{font-size:var(--fs-sm);color:var(--muted);min-width:0}
+.crumb b{
+  display:block;color:var(--ink);font-size:var(--fs-lg);font-weight:800;letter-spacing:-.025em;
+  line-height:1.35;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+.crumb b:focus{outline:none}
+.crumb .n{font-family:var(--mono);font-size:var(--fs-xs)}
+
+/* ---------- 1층 머리 ---------- */
+.hero{background:var(--navy);color:#fff;padding:46px 0 42px;position:relative;overflow:hidden}
+.hero::after{
+  content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:100% 34px;pointer-events:none;
+}
+.hero .wrap{position:relative;z-index:1}
+.hero .lead,.hsearch,.hsearch-hint{max-width:720px}
+.eyebrow{
+  font-family:var(--mono);font-size:var(--fs-xs);letter-spacing:.2em;
+  color:var(--gold);margin-bottom:14px;
+}
+.hero h1{
+  font-size:var(--fs-hero);line-height:1.22;
+  font-weight:800;letter-spacing:-.025em;margin-bottom:12px;
+}
+.hero h1 em{font-style:normal;color:#7FD3DB}
+.hero p.lead{font-size:var(--fs-lg);color:#C4D3E1;max-width:46ch;margin-bottom:22px}
+
+/* 1층 검색 */
+.hsearch{display:flex;gap:8px}
+.hsearch input{
+  flex:1;min-width:0;padding:15px 16px;border:none;border-radius:var(--radius);
+  font-family:var(--sans);font-size:var(--fs-lg);background:#fff;color:var(--ink);
+}
+.hsearch input:focus{outline:3px solid var(--gold);outline-offset:0}
+.hsearch button{
+  flex:0 0 auto;background:var(--gold);color:#22190A;border:none;
+  padding:0 22px;border-radius:var(--radius);
+  font-family:var(--sans);font-size:var(--fs-lg);font-weight:800;cursor:pointer;
+}
+.hsearch button:hover{background:#D2A85B}
+.hsearch-hint{margin-top:10px;font-size:var(--fs-sm);color:#9FB4C8}
+.hero-facts{display:flex;gap:24px;margin-top:24px;flex-wrap:wrap}
+.hero-facts div{font-size:var(--fs-sm);color:#9FB4C8}
+.hero-facts b{display:block;color:#fff;font-size:var(--fs-2xl);font-weight:800;letter-spacing:-.02em}
+
+
+/* ---------- 1층 고르기 ---------- */
+.picker{background:#fff;border-bottom:1px solid var(--line);padding:34px 0 30px}
+.pick-title{font-size:var(--fs-2xl);font-weight:800;letter-spacing:-.02em;margin-bottom:4px}
+.pick-sub{font-size:var(--fs-md);color:var(--muted);margin-bottom:16px}
+.sits{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:760px){.sits{grid-template-columns:repeat(2,1fr)}}
+.sit{
+  background:#fff;border:1px solid var(--line);border-left:3px solid var(--teal);
+  border-radius:var(--radius);padding:14px 14px 12px;text-align:left;
+  font-family:var(--sans);cursor:pointer;display:flex;flex-direction:column;gap:4px;
+  min-height:74px;justify-content:center;
+}
+.sit:hover{border-color:var(--navy);border-left-color:var(--navy);background:#FBFCFD}
+.sit .nm{font-size:var(--fs-lg);font-weight:800;letter-spacing:-.02em;line-height:1.3;color:var(--ink)}
+.sit .ct{font-family:var(--mono);font-size:var(--fs-xs);color:var(--muted)}
+/* 마지막 한 장이 줄에 홀로 남으면 줄 전체를 채운다. 빠뜨린 칸처럼 보이지 않게 한다. */
+.sits .sit:last-child:nth-child(4n+1){grid-column:1/-1}
+@media(max-width:760px){.sits .sit:last-child:nth-child(odd){grid-column:1/-1}}
+
+/* ---------- 1층 목차 — 이 팩에 무엇이 들었는지 ---------- */
+.toc{background:var(--paper);border-bottom:1px solid var(--line);padding:38px 0 42px}
+.toc-top{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:20px;flex-wrap:wrap}
+.toc-toggle{
+  border:1px solid var(--line);background:#fff;color:var(--navy);
+  padding:8px 15px;border-radius:var(--radius);font-family:var(--sans);
+  font-size:var(--fs-md);font-weight:700;cursor:pointer;flex:0 0 auto;
+}
+.toc-toggle:hover{border-color:var(--navy)}
+.toc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:start}
+@media(max-width:1000px){.toc-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:680px){.toc-grid{grid-template-columns:1fr}}
+
+.toc-pack{background:#fff;border:1px solid var(--line);border-left:3px solid var(--navy);border-radius:var(--radius)}
+.toc-pack > summary{
+  list-style:none;cursor:pointer;padding:13px 16px;
+  display:flex;align-items:center;gap:8px;
+  font-size:var(--fs-xl);font-weight:800;letter-spacing:-.025em;color:var(--ink);
+}
+.toc-pack > summary::-webkit-details-marker{display:none}
+.toc-pack > summary::after{content:"▸";margin-left:auto;color:var(--teal);font-size:var(--fs-xs)}
+.toc-pack[open] > summary::after{content:"▾"}
+.toc-pack > summary .ct{font-family:var(--mono);font-size:var(--fs-xs);color:var(--muted);font-weight:400}
+.toc-list{border-top:1px solid var(--line);padding:6px 0 8px}
+.toc-item{
+  display:flex;align-items:baseline;gap:9px;width:100%;text-align:left;
+  background:none;border:none;cursor:pointer;font-family:var(--sans);
+  padding:7px 16px;font-size:var(--fs-md);color:var(--ink);line-height:1.5;
+}
+.toc-item:hover{background:#F1F6F7;color:var(--teal)}
+.toc-item .n{font-family:var(--mono);font-size:var(--fs-xs);color:var(--muted);flex:0 0 auto;letter-spacing:.04em}
+.toc-more{
+  display:block;width:100%;text-align:left;background:none;border:none;cursor:pointer;
+  font-family:var(--sans);font-size:var(--fs-sm);font-weight:700;color:var(--teal);
+  padding:7px 16px 10px;
+}
+.toc-more:hover{text-decoration:underline}
+
+.byline{
+  margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.14);
+  font-size:var(--fs-sm);color:#9FB4C8;line-height:1.65;
+}
+.byline b{color:#fff;font-weight:700}
+
+/* prompts.js를 못 불러왔을 때만 보인다 */
+.load-warn{display:none;border:1px solid #EFE3C8;background:#FBF0D9;border-left:3px solid var(--gold);
+  border-radius:var(--radius);padding:16px 18px;font-size:var(--fs-md);line-height:1.65;color:#5C4715}
+.load-warn.on{display:block}
+.load-warn b{display:block;color:#7A5A17;font-size:var(--fs-lg);margin-bottom:5px}
+.load-warn code{font-family:var(--mono);font-size:var(--fs-sm);background:#fff;padding:1px 5px;border-radius:3px;word-break:break-all}
+.warn-where{display:block;margin-top:10px;padding-top:9px;border-top:1px solid #EFE3C8;font-size:var(--fs-sm);color:#7A5A17}
+
+.pick-more{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.wide{
+  border:1px solid var(--line);background:#fff;color:var(--ink);
+  padding:12px 18px;border-radius:var(--radius);
+  font-family:var(--sans);font-size:var(--fs-md);font-weight:700;cursor:pointer;
+}
+.wide:hover{border-color:var(--navy)}
+.wide.accent{background:var(--navy);border-color:var(--navy);color:#fff}
+.wide.accent:hover{background:var(--navy-deep)}
+@media(max-width:560px){
+  .pick-more{flex-direction:column}
+  .wide{width:100%;text-align:center}
+}
+
+/* ---------- 설명 스트립 ---------- */
+.howto{background:var(--paper);border-bottom:1px solid var(--line);padding:34px 0}
+.howto .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.howto .step{display:flex;gap:14px}
+.howto .num{
+  font-family:var(--mono);font-size:var(--fs-xs);color:var(--teal);
+  border:1px solid var(--teal);width:26px;height:26px;flex:0 0 26px;
+  display:grid;place-items:center;border-radius:50%;margin-top:3px;
+}
+.howto h4{font-size:var(--fs-lg);font-weight:700;margin-bottom:3px}
+.howto p{font-size:var(--fs-md);color:var(--muted);line-height:1.6}
+@media(max-width:760px){.howto .wrap{grid-template-columns:1fr;gap:18px}}
+
+/* ---------- 1층 얇은 안내 줄 ---------- */
+.strip{background:#fff;border-bottom:1px solid var(--line);padding:22px 0}
+.strip .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.strip p{font-size:var(--fs-md);color:var(--muted)}
+.strip p b{color:var(--ink)}
+
+/* ---------- 활용법·소개 화면 ---------- */
+.page{background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);
+  border-radius:var(--radius);padding:28px 30px 32px;margin-top:20px}
+.page-h{font-size:var(--fs-2xl);font-weight:800;letter-spacing:-.02em;margin:26px 0 12px;
+  padding-bottom:8px;border-bottom:1px solid var(--line)}
+.page-h:first-child{margin-top:0}
+.page-p{font-size:var(--fs-lg);color:var(--muted);line-height:1.75;margin:10px 0}
+.page-p b{color:var(--navy)}
+.page-more{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px;padding-top:22px;border-top:1px solid var(--line)}
+.asklink{text-decoration:none;display:inline-block;text-align:center}
+
+.steps{display:grid;gap:16px}
+.steps .step{display:flex;gap:14px}
+.steps .num{font-family:var(--mono);font-size:var(--fs-xs);color:var(--teal);
+  border:1px solid var(--teal);width:26px;height:26px;flex:0 0 26px;
+  display:grid;place-items:center;border-radius:50%;margin-top:3px}
+.steps h4{font-size:var(--fs-xl);font-weight:800;margin-bottom:3px}
+.steps p{font-size:var(--fs-md);color:var(--muted);line-height:1.7}
+.steps p b{color:var(--navy)}
+
+.tips{list-style:none;display:grid;gap:9px}
+.tips li{font-size:var(--fs-md);color:var(--muted);line-height:1.7;padding-left:16px;position:relative}
+.tips li::before{content:"—";position:absolute;left:0;color:var(--teal)}
+.tips li b{color:var(--ink)}
+.tips.warn li::before{color:var(--gold)}
+
+/* 소개 화면 */
+.prof-head{
+  display:grid;grid-template-columns:170px 1fr;gap:26px;align-items:center;
+  border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:6px;
+}
+.prof-photo{
+  width:170px;height:170px;object-fit:cover;object-position:50% 18%;
+  border-radius:var(--radius);border:1px solid var(--line);
+  background:#EEF2F5;display:block;
+}
+.prof-txt{min-width:0}
+@media(max-width:600px){
+  .prof-head{grid-template-columns:1fr;gap:16px;justify-items:center;text-align:center}
+  .prof-photo{width:132px;height:132px}
+  .prof-sum{text-align:left}
+}
+.prof-eyebrow{font-family:var(--mono);font-size:var(--fs-xs);letter-spacing:.14em;color:var(--teal);margin-bottom:10px}
+.prof-head h2{font-size:var(--fs-3xl);font-weight:700;letter-spacing:-.02em}
+.prof-head h2 b{font-weight:800}
+.prof-lead{font-size:var(--fs-lg);color:var(--navy);font-weight:700;margin-top:8px}
+.prof-sum{font-size:var(--fs-md);color:var(--muted);line-height:1.75;margin-top:10px;max-width:62ch}
+
+.tl{display:grid;gap:0}
+.tl-row{display:flex;gap:16px;padding:11px 0;border-bottom:1px solid var(--line);font-size:var(--fs-md);line-height:1.6}
+.tl-row:last-child{border-bottom:none}
+.tl-y{flex:0 0 104px;font-family:var(--mono);font-size:var(--fs-xs);color:var(--teal);padding-top:3px}
+@media(max-width:560px){.tl-row{flex-direction:column;gap:3px}.tl-y{flex:none}}
+
+.chips-b{display:flex;flex-wrap:wrap;gap:8px}
+.chips-b span{border:1px solid var(--line);background:#FBFCFD;color:var(--ink);
+  padding:7px 13px;border-radius:100px;font-size:var(--fs-sm);font-weight:600}
+
+.orgs{display:grid;gap:0}
+.orgs dt{font-size:var(--fs-md);font-weight:800;color:var(--navy);padding-top:13px}
+.orgs dd{font-size:var(--fs-md);color:var(--muted);line-height:1.75;padding:4px 0 13px;border-bottom:1px solid var(--line)}
+.orgs dd:last-child{border-bottom:none}
+
+@media(max-width:520px){.page{padding:22px 18px 26px}}
+
+/* ---------- 공용 구획 ---------- */
+.section{padding:36px 0 56px}
+
+/* ---------- 2층 목록 ---------- */
+.lsearch{padding:14px 0 4px}
+.lsearch input{
+  width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:var(--radius);
+  font-family:var(--sans);font-size:var(--fs-lg);background:#fff;color:var(--ink);
+}
+.lsearch input:focus{outline:2px solid var(--teal);outline-offset:1px;border-color:transparent}
+
+.rows{display:grid;gap:10px;margin-top:16px}
+.row{
+  width:100%;text-align:left;background:#fff;border:1px solid var(--line);
+  border-left:3px solid var(--teal);border-radius:var(--radius);
+  padding:14px 16px;cursor:pointer;font-family:var(--sans);
+  display:flex;align-items:center;gap:12px;
+}
+.row[data-net="true"]{border-left-color:var(--gold)}
+.row:hover{border-color:var(--navy);background:#FBFCFD}
+.row-main{flex:1;min-width:0}
+.row-meta{
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:5px;
+  font-family:var(--mono);font-size:var(--fs-xs);color:var(--muted);letter-spacing:.06em;
+}
+.row-title{display:block;font-size:var(--fs-xl);font-weight:800;letter-spacing:-.025em;line-height:1.35;color:var(--ink)}
+.row-desc{display:block;font-size:var(--fs-md);color:var(--muted);margin-top:4px;line-height:1.55}
+.row-arrow{flex:0 0 auto;color:var(--muted);font-size:var(--fs-2xl);line-height:1}
+.tag{
+  font-family:var(--sans);letter-spacing:0;font-size:var(--fs-xs);font-weight:700;
+  color:var(--teal);background:#E6F2F3;padding:2px 8px;border-radius:100px;
+}
+.tag.need{color:#7A5A17;background:#FBF0D9}
+
+.empty{
+  display:none;text-align:center;padding:44px 20px 40px;color:var(--muted);
+  border:1px dashed var(--line);border-radius:var(--radius);background:#fff;margin-top:16px;
+}
+.empty.on{display:block}
+.empty > b{display:block;color:var(--ink);font-size:var(--fs-2xl);font-weight:800;letter-spacing:-.025em}
+.empty-sub{font-size:var(--fs-md);margin-top:7px}
+/* 0건은 다음에 만들 지시서를 알려주는 자리다. 그냥 비워두지 않는다. */
+.empty-ask{
+  margin-top:22px;padding-top:22px;border-top:1px solid var(--line);
+  display:flex;flex-direction:column;align-items:center;gap:12px;
+}
+.ask-btn{
+  display:inline-block;background:var(--gold);color:#22190A;text-decoration:none;
+  padding:14px 26px;border-radius:var(--radius);font-size:var(--fs-lg);font-weight:800;
+}
+.ask-btn:hover{background:#D2A85B}
+.empty-word{font-size:var(--fs-sm);color:var(--muted);max-width:46ch;line-height:1.6}
+.empty-word b{color:var(--navy);font-weight:700}
+.ask-text{
+  font-family:var(--sans);font-size:var(--fs-sm);line-height:1.7;white-space:pre-wrap;text-align:left;
+  background:#FBFCFD;border:1px solid var(--line);border-radius:var(--radius);
+  padding:12px 14px;color:#1B2A3A;width:min(420px,100%);
+}
+
+/* ---------- 3층 상세 ---------- */
+.sheet{
+  background:#fff;border:1px solid var(--line);border-left:3px solid var(--teal);
+  border-radius:var(--radius);margin-top:20px;overflow:hidden;
+}
+.sheet[data-net="true"]{border-left-color:var(--gold)}
+.sheet-head{padding:20px 22px 16px;border-bottom:1px solid var(--line)}
+.sheet-meta{
+  display:flex;align-items:center;gap:9px;margin-bottom:9px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:var(--fs-xs);color:var(--muted);letter-spacing:.06em;
+}
+.sheet-head h2{font-size:var(--fs-3xl);font-weight:800;letter-spacing:-.02em;line-height:1.3}
+.sheet-head .desc{font-size:var(--fs-md);color:var(--muted);margin-top:7px}
+.sheet-body{
+  margin:0;padding:20px 22px;background:#FBFCFD;
+  font-family:var(--sans);font-size:var(--fs-lg);line-height:1.85;
+  white-space:pre-wrap;word-break:break-word;color:#1B2A3A;
+}
+.safe-hint{
+  padding:10px 22px;font-size:var(--fs-sm);color:#7A5A17;background:#FBF0D9;
+  border-top:1px solid #EFE3C8;display:flex;gap:7px;align-items:flex-start;
+}
+.safe-hint span{font-family:var(--mono);font-size:var(--fs-xs);letter-spacing:.06em;flex:0 0 auto;padding-top:2px}
+.sheet-acts{border-top:1px solid var(--line);padding:12px 22px;display:flex;gap:9px;flex-wrap:wrap}
+.b{
+  border:1px solid var(--line);background:#fff;color:var(--ink);
+  padding:9px 15px;border-radius:var(--radius);font-size:var(--fs-md);font-weight:600;
+  cursor:pointer;font-family:var(--sans);
+}
+.b:hover{border-color:var(--navy)}
+.b.copy{background:var(--navy);border-color:var(--navy);color:#fff}
+.b.copy:hover{background:var(--navy-deep)}
+.b.copy.done{background:var(--teal);border-color:var(--teal)}
+.b.sample{color:var(--teal);border-color:#BFDDE0}
+.b.sample:hover{background:#E6F2F3}
+
+.sample-box{display:none;border-top:1px dashed var(--line);padding:16px 22px;background:#FFFDF7}
+.sample-box.open{display:block}
+.sample-box h5{font-size:var(--fs-sm);font-weight:800;color:#7A5A17;letter-spacing:.02em;margin-bottom:8px}
+.sample-box pre{
+  font-family:var(--sans);font-size:var(--fs-md);line-height:1.7;white-space:pre-wrap;
+  color:#3A3527;background:#fff;border:1px solid #EFE3C8;padding:12px 14px;border-radius:var(--radius);
+}
+.sample-box .b{margin-top:10px}
+.note{padding:13px 22px;font-size:var(--fs-sm);color:var(--muted);background:#F7F9FA;border-top:1px solid var(--line)}
+.note b{color:var(--navy)}
+
+/* 3층 하단 고정 바 */
+.dock{
+  display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;
+  background:rgba(255,255,255,.98);border-top:1px solid var(--line);
+  box-shadow:0 -6px 20px rgba(0,20,45,.10);
+  padding:10px 0 max(10px,env(safe-area-inset-bottom));
+}
+.dock.on{display:block}
+.dock .wrap{display:flex;align-items:center;gap:12px}
+.dock-copy{
+  flex:1;padding:15px 18px;font-size:var(--fs-lg);font-weight:800;
+  background:var(--navy);border:1px solid var(--navy);color:#fff;
+  border-radius:var(--radius);font-family:var(--sans);cursor:pointer;
+}
+.dock-copy:hover{background:var(--navy-deep)}
+.dock-copy.done{background:var(--teal);border-color:var(--teal)}
+.dock-ask{
+  flex:0 0 auto;font-size:var(--fs-sm);font-weight:700;color:var(--teal);
+  text-decoration:none;text-align:center;line-height:1.35;max-width:110px;
+}
+.dock-ask:hover{text-decoration:underline}
+
+/* ---------- 지시서 변환기 ---------- */
+.forge{background:#fff;border:1px solid var(--line);border-top:3px solid var(--teal);border-radius:var(--radius);margin-top:20px;overflow:hidden}
+.forge-head{padding:24px 26px 0}
+.forge-head .eyebrow2{font-family:var(--mono);font-size:var(--fs-xs);letter-spacing:.18em;color:var(--teal);margin-bottom:9px}
+.forge-head h3{font-size:var(--fs-2xl);font-weight:800;letter-spacing:-.02em;margin-bottom:7px}
+.forge-head p{font-size:var(--fs-md);color:var(--muted);max-width:62ch}
+.tabs{display:flex;margin:18px 26px 0;border-bottom:1px solid var(--line)}
+.tab{
+  background:none;border:none;border-bottom:2px solid transparent;
+  padding:11px 2px;margin-right:26px;font-family:var(--sans);font-size:var(--fs-md);
+  font-weight:700;color:var(--muted);cursor:pointer;
+}
+.tab[aria-selected="true"]{color:var(--navy);border-bottom-color:var(--gold)}
+.panel{display:none;padding:20px 26px 24px}
+.panel.on{display:block}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:var(--fs-md);font-weight:700;color:var(--navy);margin-bottom:6px}
+.field .hint{font-weight:400;color:var(--muted);font-size:var(--fs-sm);margin-left:6px}
+.field textarea,.field input{
+  width:100%;border:1px solid var(--line);border-radius:var(--radius);
+  padding:12px 14px;font-family:var(--sans);font-size:var(--fs-md);line-height:1.65;
+  color:var(--ink);background:#FBFCFD;resize:vertical;
+}
+.field textarea:focus,.field input:focus{outline:2px solid var(--teal);outline-offset:1px;border-color:transparent;background:#fff}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.pair{grid-template-columns:1fr}}
+.forge-out{border-top:1px dashed var(--line);margin-top:6px;padding-top:18px}
+.forge-out h5{font-size:var(--fs-sm);font-weight:800;color:var(--teal);letter-spacing:.02em;margin-bottom:9px}
+.forge-out pre{
+  font-family:var(--sans);font-size:var(--fs-md);line-height:1.78;white-space:pre-wrap;
+  background:#FBFCFD;border:1px solid var(--line);padding:16px 18px;border-radius:var(--radius);
+  max-height:300px;overflow:auto;color:#1B2A3A;
+}
+.forge-actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:12px}
+.forge-actions .go{font-size:var(--fs-sm);color:var(--muted);margin-left:auto}
+.forge-actions .go a{color:var(--teal);font-weight:600;text-decoration:none;margin-left:10px}
+.forge-actions .go a:hover{text-decoration:underline}
+
+/* ---------- 안전 문구 배너 ---------- */
+.safety{
+  background:#fff;border:1px solid var(--line);border-top:3px solid var(--gold);
+  border-radius:var(--radius);padding:24px 26px;
+}
+.safety h3{font-size:var(--fs-xl);font-weight:800;margin-bottom:8px;letter-spacing:-.02em}
+.safety p{font-size:var(--fs-md);color:var(--muted);margin-bottom:14px}
+.safety pre{
+  font-family:var(--sans);font-size:var(--fs-md);line-height:1.75;white-space:pre-wrap;
+  background:#FBFCFD;border:1px solid var(--line);padding:14px 16px;border-radius:var(--radius);
+}
+.safety .b{margin-top:12px}
+
+/* ---------- CTA ---------- */
+.cta{background:var(--navy);color:#fff;padding:56px 0}
+.cta .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:44px;align-items:center}
+.cta h2{font-size:clamp(25px,3.3vw,33px);font-weight:800;letter-spacing:-.02em;line-height:1.3;margin-bottom:14px}
+.cta p{color:#BDCEDD;font-size:var(--fs-lg);max-width:48ch}
+.cta ul{list-style:none;margin-top:18px;display:grid;gap:7px}
+.cta li{font-size:var(--fs-md);color:#D6E2EC;padding-left:16px;position:relative}
+.cta li::before{content:"—";position:absolute;left:0;color:var(--gold)}
+.cta-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:var(--radius);padding:24px}
+.cta-card h4{font-size:var(--fs-md);margin-bottom:12px;color:#8FC7CD;font-family:var(--mono);letter-spacing:.08em;font-weight:600}
+.cta-card a.block{
+  display:block;background:var(--gold);color:#22190A;text-align:center;
+  padding:13px;border-radius:var(--radius);font-weight:800;text-decoration:none;margin-bottom:9px;
+}
+.cta-card a.block.alt{background:transparent;border:1px solid rgba(255,255,255,.35);color:#fff}
+.cta-card a.block:hover{filter:brightness(1.06)}
+/* 전화와 이메일은 나란히 둔다. 문의폼을 쓰지 않는 사람도 있다. */
+.cta-contact{
+  margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.16);
+  display:flex;flex-direction:column;gap:6px;
+}
+.cta-contact a{
+  color:#DCE7F0;text-decoration:none;font-size:var(--fs-md);font-weight:600;
+  display:flex;align-items:center;gap:8px;
+}
+.cta-contact a::before{content:"—";color:var(--gold)}
+.cta-contact a:hover{color:#fff;text-decoration:underline}
+@media(max-width:900px){.cta .wrap{grid-template-columns:1fr;gap:28px}}
+
+/* ---------- 푸터 ---------- */
+footer{background:var(--navy-deep);color:#8AA0B4;padding:30px 0;font-size:var(--fs-sm)}
+footer .wrap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+footer b{color:#fff;font-weight:700}
+footer a{color:#8FC7CD;text-decoration:none}
+
+/* ---------- 토스트 ---------- */
+.toast{
+  position:fixed;left:50%;bottom:26px;transform:translate(-50%,20px);
+  background:var(--ink);color:#fff;padding:12px 22px;border-radius:100px;
+  font-size:var(--fs-md);font-weight:600;opacity:0;pointer-events:none;transition:.24s;z-index:100;
+}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+body.has-dock .toast{bottom:96px}
+
+:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){*{transition:none !important}}
+
+@media(max-width:400px){
+  .wrap{width:94vw}
+  .hero{padding:34px 0 32px}
+  .hsearch{flex-direction:column}
+  .hsearch button{padding:13px}
+  .sheet-head,.sheet-body,.safe-hint,.sheet-acts,.sample-box,.note{padding-left:16px;padding-right:16px}
+  .dock-ask{max-width:88px;font-size:var(--fs-xs)}
+}
+
+/* 누를 수 있는 것의 공통 신호 — 손 모양, 마우스를 올리면 살짝 떠오르고, 누르면 물결이 퍼진다 */
+button:not(.brand),.ask-btn,.btn-ask{cursor:pointer;position:relative;overflow:hidden;transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease}
+button:not(.brand):hover,.ask-btn:hover,.btn-ask:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(6,27,58,.16)}
+button:not(.brand):active,.ask-btn:active,.btn-ask:active{transform:translateY(0);box-shadow:0 2px 6px rgba(6,27,58,.14)}
+button:not(.brand)::after,.ask-btn::after,.btn-ask::after{content:'';position:absolute;left:50%;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:rgba(1,122,132,.28);transform:scale(40);opacity:0;pointer-events:none;transition:transform .55s ease-out,opacity .75s ease-out}
+button:not(.brand):active::after,.ask-btn:active::after,.btn-ask:active::after{transform:scale(0);opacity:1;transition:0s}
+button:not(.brand):focus-visible,.ask-btn:focus-visible,.btn-ask:focus-visible{outline:3px solid #F4C542;outline-offset:2px}
+@media(prefers-reduced-motion:reduce){button:not(.brand)::after,.ask-btn::after,.btn-ask::after{transition:none}button:not(.brand),.ask-btn,.btn-ask{transition:none}}
+
+.topbar .wrap{height:auto;min-height:76px;padding-top:10px;padding-bottom:10px;flex-wrap:wrap}
+.brand{flex-direction:column;align-items:flex-start;gap:2px;white-space:normal;max-width:100%;min-width:0}
+.brand span{line-height:1.5;word-break:keep-all;overflow-wrap:anywhere}
+.topbar nav{flex:none;margin-left:auto}
+.navlinks{position:absolute;top:100%;left:0;right:0;display:none;flex-direction:column;align-items:stretch;background:var(--navy-deep);padding:6px 0;box-shadow:0 14px 30px rgba(0,10,25,.35)}
+.navlinks.on{display:flex}.navtoggle{display:block}
+.navlinks .navlink{padding:14px 6vw;text-align:left;border-bottom:1px solid rgba(255,255,255,.08)}
+.prof-txt h2{overflow-wrap:anywhere;line-height:1.45}
+@media(max-width:560px){.brand{flex:1 1 100%}.topbar nav{width:100%;justify-content:flex-end}.brand span{font-size:14px}.topbar .wrap{gap:8px}}
+</style>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%274%27 fill=%27%23002D5A%27/%3E%3Cpath d=%27M9 6h14v20H9z%27 fill=%27white%27/%3E%3Cpath d=%27M12 11h8M12 15h8M12 19h5%27 stroke=%27%23017A84%27 stroke-width=%272%27/%3E%3C/svg%3E">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <button class="brand" type="button" data-go=""><b>AI 업무 지시서</b><span>AI콘텐츠마케팅연구소 유쌤클래스 김유성 강사</span></button>
+    <nav>
+      <div class="navlinks" id="navlinks">
+        <button type="button" class="navlink" data-scroll=".toc">분야별 목차</button>
+        <button type="button" class="navlink" data-go="a">지시서 모두 보기</button>
+        <button type="button" class="navlink" data-go="forge">지시서 만들기</button>
+        <button type="button" class="navlink" data-go="how">지시서 활용법</button>
+        <a class="navlink navpill navpill-gold" href="https://www.yussamclass.com/32" target="_blank" rel="noopener">김유성 강사 소개 ↗</a>
+        <a class="navlink navpill navpill-teal" href="https://pk-pdca-bridge-recreation.yuseong-kim.chatgpt.site" target="_blank" rel="noopener">PK-PDCA 브릿지 ↗</a>
+      </div>
+      <a class="btn-ask" href="https://www.yussamclass.com/76" target="_blank" rel="noopener">강의 요청 ↗</a>
+      <button type="button" class="navtoggle" id="navToggle" aria-expanded="false" aria-controls="navlinks" aria-label="차림표 열기">☰</button>
+    </nav>
+  </div>
+</div>
+
+<!-- ================= 1층 · 첫 화면 =================
+     처음부터 켜둔다. 스크립트가 실패해도 첫 화면은 보여야 한다. -->
+<div class="view on" id="view-home">
+
+  <header class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">FREE PROMPT PACK</div>
+        <h1>AI 업무 <em>지시서</em>(프롬프트)</h1>
+        <p class="lead">지시서는 AI에게 주는 프롬프트를 뜻합니다. 복사해서 붙여넣기만 하면 되는 업무 지시서 <span data-count-prompts>66</span>장입니다. 가입도 결제도 없습니다.</p>
+
+        <form class="hsearch" id="homeForm">
+          <input id="q" type="search" placeholder="찾으시는 업무를 적어보십시오" aria-label="지시서 검색">
+          <button type="submit">찾기</button>
+        </form>
+        <p class="hsearch-hint">예) 회의록 · 주간보고 · 문자 · 이력서 · 엑셀 수식</p>
+
+      </div>
+
+    </div>
+  </header>
+
+  <section class="picker">
+    <div class="wrap">
+      <h2 class="pick-title">무슨 일을 하시나요</h2>
+      <p class="pick-sub">하시는 일을 고르시면 그 일에 쓰는 지시서만 보여드립니다.</p>
+
+      <div class="load-warn" id="loadWarn">
+        <b id="warnHead">지시서 데이터를 불러오지 못했습니다.</b>
+        <span id="warnBody"></span>
+        <span class="warn-where">지금 보고 계신 주소 — <code id="warnAddr"></code></span>
+      </div>
+
+      <div class="sits" id="sits"></div>
+
+    </div>
+  </section>
+
+  <!-- 이 팩에 무엇이 들어 있는지 한눈에 보여주는 목차.
+       검색만 있으면 방문자는 무엇을 물어야 할지 모른다. -->
+  <section class="toc">
+    <div class="wrap">
+      <div class="toc-top">
+        <div>
+          <h2 class="pick-title">분야별 지시서</h2>
+          <p class="pick-sub">분야별 목차입니다. 제목을 누르면 그 지시서가 바로 열립니다.</p>
+        </div>
+        <button class="toc-toggle" type="button" id="tocToggle">모두 펼치기</button>
+      </div>
+      <div class="toc-grid" id="toc"></div>
+
+      <div class="pick-more">
+        <button class="wide accent" type="button" data-go="forge">내 문장을 지시서로 바꾸기</button>
+        <button class="wide" type="button" data-go="a">지시서 <span data-count-prompts>66</span>장 모두 보기</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="strip">
+    <div class="wrap">
+      <p><b>처음이신가요.</b> 복사해서 붙여넣는 법과, 어떤 지시서에든 붙이는 안전 문구를 먼저 보십시오.</p>
+      <button class="wide" type="button" data-go="how">지시서 활용법 보기 →</button>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <div>
+        <h2>지시서로 바뀌는 건 업무 속도입니다.<br>바뀌지 않는 건 판단력입니다.</h2>
+        <p>유쌤클래스는 생성형 AI를 실제 업무와 콘텐츠 제작에 연결하는 교육을 진행합니다. 실제 교육에서는 참여자가 자기 업무 자료를 직접 넣어보고, 결과가 어긋날 때 지시서를 어떻게 고치는지까지 함께 만듭니다.</p>
+        <ul>
+          <li>공공기관·교육기관·기업·소상공인·청소년·시니어 대상 맞춤 설계</li>
+          <li>보고서·데이터·홍보물 등 실제 결과물이 남는 실습</li>
+          <li>보안·저작권·팩트체크를 포함한 안전한 AI 활용</li>
+        </ul>
+      </div>
+      <div class="cta-card">
+        <h4>LECTURE INQUIRY</h4>
+        <a class="block" href="https://www.yussamclass.com/76" target="_blank" rel="noopener">강의 문의하기</a>
+        <a class="block alt" href="https://www.yussamclass.com/" target="_blank" rel="noopener">강사 홈페이지</a>
+        <a class="block alt" href="https://www.yussamclass.com/63" target="_blank" rel="noopener">강의 주제 보기</a>
+        <div class="cta-contact">
+          <a href="tel:01027819669">010-2781-9669</a>
+          <a href="mailto:kyseong3@naver.com">kyseong3@naver.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= 2층 · 목록 ================= -->
+<div class="view" id="view-list">
+  <div class="subbar">
+    <div class="wrap">
+      <button class="back" type="button" data-go="">← 처음으로</button>
+      <div class="crumb">
+        홈 › <span id="listWhere">목록</span>
+        <b id="listTitle" tabindex="-1">목록</b>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="lsearch">
+      <input id="lq" type="search" placeholder="여기서 다시 찾기" aria-label="지시서 다시 검색">
+    </div>
+    <div class="rows" id="rows"></div>
+    <div class="empty" id="empty">
+      <b>찾으시는 지시서가 아직 없습니다.</b>
+      <p class="empty-sub">다른 낱말로 찾아보십시오. 그래도 없으면 만들어 드리겠습니다.</p>
+
+      <div class="empty-ask" id="emptyAsk">
+        <a class="ask-btn" id="askBtn"
+           href="https://www.yussamclass.com/76" target="_blank" rel="noopener">이 업무 지시서를 요청합니다</a>
+        <p class="empty-word">누르면 문의 화면이 열리고, 아래 문장이 <b>요청 내용 칸에 미리 담겨 있습니다.</b> 어떤 일에 쓰실지 한 줄만 덧붙여 주십시오.</p>
+        <pre class="ask-text" id="askText"></pre>
+      </div>
+    </div>
+    <div style="height:48px"></div>
+  </div>
+</div>
+
+<!-- ================= 3층 · 상세 ================= -->
+<div class="view" id="view-detail">
+  <div class="subbar">
+    <div class="wrap">
+      <button class="back" type="button" id="detailBack">← 목록으로</button>
+      <div class="crumb">
+        <span class="n" id="detailId">SNB-</span>
+        <b id="detailTitle" tabindex="-1">지시서</b>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <article class="sheet" id="sheet">
+      <div class="sheet-head">
+        <div class="sheet-meta" id="sheetMeta"></div>
+        <h2 id="sheetTitle"></h2>
+        <p class="desc" id="sheetDesc"></p>
+      </div>
+      <pre class="sheet-body" id="sheetBody"></pre>
+      <div class="safe-hint">
+        <span>[안전]</span>
+        복사하면 공통 안전 문구 세 줄이 아래에 함께 붙습니다
+      </div>
+      <div class="sheet-acts">
+        <button class="b sample" type="button" id="sampleBtn">예시 자료 보기</button>
+      </div>
+      <div class="sample-box" id="sampleBox">
+        <h5>붙여넣어 볼 예시 자료 — 내 자료가 없을 때 먼저 써보십시오</h5>
+        <pre id="sheetSample"></pre>
+        <button class="b copy" data-copy="#sheetSample">예시 자료 복사</button>
+      </div>
+      <div class="note" id="sheetNote"></div>
+    </article>
+  </div>
+</div>
+
+<!-- ================= 지시서 활용법 ================= -->
+<div class="view" id="view-how">
+  <div class="subbar">
+    <div class="wrap">
+      <button class="back" type="button" data-go="">← 처음으로</button>
+      <div class="crumb">
+        홈 › 활용법
+        <b id="howTitle" tabindex="-1">지시서 활용법</b>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <section class="page">
+      <h2 class="page-h">세 걸음이면 끝납니다</h2>
+      <div class="steps">
+        <div class="step"><div class="num">1</div><div><h4>지시서를 복사합니다</h4><p>목록에서 지시서를 열고 화면 아래 <b>[지시서 복사]</b>를 누르면 전체가 그대로 복사됩니다. 안전 문구 세 줄도 함께 붙습니다.</p></div></div>
+        <div class="step"><div class="num">2</div><div><h4>AI 화면에 붙여넣습니다</h4><p>ChatGPT·Claude·Gemini 어디에 붙여도 똑같이 작동합니다. 가입한 것 아무거나 쓰시면 됩니다.</p></div></div>
+        <div class="step"><div class="num">3</div><div><h4>맨 아래에 내 자료를 넣습니다</h4><p>지시서 안의 <b>{   }</b> 자리를 내 상황으로 채우고, 회의록·표 같은 자료는 맨 아래에 붙입니다. 자료가 없으면 각 지시서의 <b>예시 자료</b>를 먼저 써보십시오.</p></div></div>
+      </div>
+
+      <h2 class="page-h">잘 안 나올 때</h2>
+      <ul class="tips">
+        <li><b>한 번에 하나만 고쳐 말하십시오.</b> 여러 곳을 한꺼번에 바꾸면 무엇이 효과가 있었는지 알 수 없습니다.</li>
+        <li><b>결과가 길면 분량을 정해주십시오.</b> "A4 한 장", "표 한 개와 요약 세 줄"처럼 적으면 달라집니다.</li>
+        <li><b>말투가 어색하면 읽을 사람을 알려주십시오.</b> 누가 읽는지에 따라 문장이 바뀝니다.</li>
+        <li><b>사실이 의심스러우면 근거를 물으십시오.</b> "이 수치의 출처를 알려줘"라고 되물으면 지어낸 것이 드러납니다.</li>
+        <li>그래도 막히면 <b>미디어 팩의 「마음에 안 들 때 고쳐 말하기」</b>를 쓰십시오. 어디를 바꿔 말할지 찾아줍니다.</li>
+      </ul>
+
+      <h2 class="page-h">넣지 말아야 할 것</h2>
+      <ul class="tips warn">
+        <li>주민등록번호, 계좌번호, 비밀번호</li>
+        <li>고객 명단, 연락처, 인사 기록 같은 남의 개인정보</li>
+        <li>공개되지 않은 계약서·단가표·도면</li>
+      </ul>
+      <p class="page-p">회사에서 쓰신다면 <b>업무혁신 팩의 「사내 AI 사용 규칙 만들기」</b>로 우리 조직에 맞는 기준을 먼저 세우시길 권합니다.</p>
+
+      <div class="safety">
+        <h3>어떤 지시서에든 붙이는 안전 문구</h3>
+        <p>AI가 가장 위험할 때는 틀릴 때가 아니라, 모르면서 아는 것처럼 답할 때입니다. 아래 세 문장을 지시서 끝에 붙이면 그럴듯한 거짓말이 크게 줄어듭니다. 이 사이트의 지시서는 <b>[지시서 복사]</b>를 누를 때 세 문장이 자동으로 함께 복사됩니다. 다른 데서 쓰실 지시서에는 아래 단추로 가져다 붙이십시오.</p>
+        <pre id="safetyText">확신이 없으면 모른다고 답해줘.
+빠지거나 모호한 정보는 추측하지 말고 나에게 먼저 물어봐줘.
+내가 준 자료에 없는 사실·수치는 만들어내지 마.</pre>
+        <button class="b copy" data-copy="#safetyText">안전 문구 복사</button>
+      </div>
+
+      <div class="page-more">
+        <button class="wide accent" type="button" data-go="a">지시서 <span data-count-prompts>66</span>장 보러 가기</button>
+        <button class="wide" type="button" data-go="forge">내 문장을 지시서로 바꾸기</button>
+      </div>
+    </section>
+    <div style="height:48px"></div>
+  </div>
+</div>
+
+<!-- ================= 김유성 강사 소개 ================= -->
+<div class="view" id="view-about">
+  <div class="subbar"><div class="wrap">
+    <button class="back" type="button" data-go="">← 처음으로</button>
+    <div class="crumb">홈 › 소개<b id="aboutTitle" tabindex="-1">김유성 강사 소개</b></div>
+  </div></div>
+  <div class="wrap"><section class="page">
+    <div class="prof-head">
+      <img class="prof-photo" src="profile-kim-yuseong.jpg" alt="친절한유성쌤 김유성 강사 프로필 사진" loading="lazy" decoding="async">
+      <div class="prof-txt">
+        <div class="prof-eyebrow">KIM YUSEONG · AI CONTENT MARKETING EDUCATION</div>
+        <h2>AI콘텐츠마케팅연구소 유쌤클래스<br><b>김유성 강사</b></h2>
+        <p class="prof-lead">현장이 답이다. 배운 것을 콘텐츠와 실행으로 연결합니다.</p>
+        <p class="prof-sum">친절한유성쌤 김유성 강사는 민들레미디어 대표이자 유쌤클래스 대표강사입니다. 방송·미디어와 콘텐츠 제작 현장 경험을 바탕으로 생성형 AI, 콘텐츠 제작, 온라인마케팅을 실무 중심으로 교육합니다.</p>
+      </div>
+    </div>
+    <h3 class="page-h">현재 맡고 있는 일</h3>
+    <ul class="tips"><li>민들레미디어 대표</li><li>AI콘텐츠마케팅연구소 유쌤클래스 대표강사</li></ul>
+    <h3 class="page-h">방송·언론·미디어 실무 경력</h3>
+    <ul class="tips">
+      <li>GOODTV 프리랜서 기자 · 한국축제방송TV 기자</li>
+      <li>iMBC 드라마 VJ · 디지틀조선일보 방송마케팅팀</li>
+      <li>MBN 매일경제 창업프로그램 PD · SBS 「뉴스추적」 카메라맨</li>
+      <li>CBS 기독교방송국 웹PD · 사랑의교회 방송실 영상 업무</li>
+      <li>인터넷방송 및 뉴미디어 콘텐츠 기획·제작 실무</li>
+    </ul>
+    <h3 class="page-h">가르치는 분야</h3>
+    <div class="chips-b">
+      <span>생성형 AI · AI 리터러시</span><span>AI 콘텐츠 기획·제작</span>
+      <span>영상제작 · 유튜브 · 숏폼</span><span>블로그 · SNS · 온라인마케팅</span>
+      <span>업무자동화 · 바이브코딩</span><span>퍼스널브랜딩</span>
+    </div>
+    <p class="page-p">글·이미지·영상·음악·나레이션을 직접 만들고, 자신의 업무와 교육 현장에 적용하는 실습을 진행합니다. 교육프로그램 페이지에서 분야별 커리큘럼을 확인하실 수 있습니다.</p>
+    <h3 class="page-h">교육 대상</h3>
+    <dl class="orgs">
+      <dt>초등학생·청소년</dt><dd>AI 리터러시와 미디어 창작, 콘텐츠 제작을 통해 생각을 결과물로 표현합니다.</dd>
+      <dt>성인·시니어</dt><dd>학습자의 눈높이에 맞춰 생성형 AI와 영상·콘텐츠 제작을 차근차근 실습합니다.</dd>
+      <dt>소상공인·중소기업</dt><dd>사업에 필요한 콘텐츠 기획과 제작, 블로그·SNS·온라인마케팅을 다룹니다.</dd>
+      <dt>공공기관·교육기관·교사·강사</dt><dd>교육자료와 업무 문서, 홍보 콘텐츠 제작에 AI를 활용하는 방법을 교육합니다.</dd>
+    </dl>
+    <h3 class="page-h">교육 방향</h3>
+    <ul class="tips"><li>실습과 실행 중심으로 배운 내용을 실제 결과물에 적용합니다.</li><li>교육 대상과 디지털 활용 수준, 교육시간과 목적에 맞춰 수업을 설계합니다.</li><li>AI 결과를 직접 검토하고 수정하는 습관을 함께 기릅니다.</li></ul>
+    <div class="page-more">
+      <a class="wide accent asklink" href="https://www.yussamclass.com/76" target="_blank" rel="noopener">강의 문의하기</a>
+      <a class="wide asklink" href="https://www.yussamclass.com/" target="_blank" rel="noopener">강사 홈페이지</a>
+      <a class="wide asklink" href="https://www.yussamclass.com/63" target="_blank" rel="noopener">강의 주제 보기</a>
+    </div>
+  </section><div style="height:48px"></div></div>
+</div>
+
+<!-- ================= 변환기 ================= -->
+<div class="view" id="view-forge">
+  <div class="subbar">
+    <div class="wrap">
+      <button class="back" type="button" data-go="">← 처음으로</button>
+      <div class="crumb">
+        홈 › 지시서 만들기
+        <b id="forgeTitle" tabindex="-1">쓰던 문장을 지시서로</b>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <section class="forge">
+      <div class="forge-head">
+        <div class="eyebrow2">PROMPT FORGE · 무료</div>
+        <h3>쓰던 문장을 지시서로 바꿔 드립니다</h3>
+        <p>찾으시는 지시서가 목록에 없을 때 쓰십시오. 내용을 적으면 완성된 지시서가 아래에 만들어집니다. 그것을 복사해 ChatGPT·Claude·Gemini 어디에든 붙여넣으면 됩니다. 가입도 결제도 필요 없습니다.</p>
+      </div>
+
+      <div class="tabs" role="tablist">
+        <button class="tab" role="tab" id="tab-up" aria-selected="true" aria-controls="panel-up">내 문장 다듬기</button>
+        <button class="tab" role="tab" id="tab-new" aria-selected="false" aria-controls="panel-new">처음부터 만들기</button>
+      </div>
+
+      <div class="panel on" id="panel-up" role="tabpanel" aria-labelledby="tab-up">
+        <div class="field">
+          <label for="upIn">지금 AI에게 쓰고 계신 문장 <span class="hint">짧아도 괜찮습니다</span></label>
+          <textarea id="upIn" rows="3" placeholder="예) 우리 가게 인스타에 올릴 홍보글 써줘"></textarea>
+        </div>
+        <div class="pair">
+          <div class="field">
+            <label for="upUse">어디에 쓰는 결과물입니까 <span class="hint">선택</span></label>
+            <input id="upUse" type="text" placeholder="예) 인스타그램 게시글">
+          </div>
+          <div class="field">
+            <label for="upWho">누가 읽습니까 <span class="hint">선택</span></label>
+            <input id="upWho" type="text" placeholder="예) 30~40대 동네 주민">
+          </div>
+        </div>
+        <div class="forge-out">
+          <h5>만들어진 지시서</h5>
+          <pre id="upOut"></pre>
+          <div class="forge-actions">
+            <button class="b copy" data-copy="#upOut">지시서 복사</button>
+            <button class="b" type="button" id="upClear">지우기</button>
+            <span class="go">붙여넣을 곳
+              <a href="https://claude.ai/new" target="_blank" rel="noopener">Claude</a>
+              <a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT</a>
+              <a href="https://gemini.google.com" target="_blank" rel="noopener">Gemini</a>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" id="panel-new" role="tabpanel" aria-labelledby="tab-new">
+        <div class="field">
+          <label for="newIn">하시려는 일 <span class="hint">반복되는 업무를 한 줄로</span></label>
+          <textarea id="newIn" rows="3" placeholder="예) 매달 나오는 판매 데이터를 정리해서 사장님 보고용 한 장으로 만드는 일"></textarea>
+        </div>
+        <div class="pair">
+          <div class="field">
+            <label for="newWho">누가 읽거나 씁니까 <span class="hint">선택</span></label>
+            <input id="newWho" type="text" placeholder="예) 대표이사">
+          </div>
+          <div class="field">
+            <label for="newForm">원하는 결과 형태 <span class="hint">선택</span></label>
+            <input id="newForm" type="text" placeholder="예) 표 한 장 + 요약 3줄">
+          </div>
+        </div>
+        <div class="forge-out">
+          <h5>만들어진 지시서</h5>
+          <pre id="newOut"></pre>
+          <div class="forge-actions">
+            <button class="b copy" data-copy="#newOut">지시서 복사</button>
+            <button class="b" type="button" id="newClear">지우기</button>
+            <span class="go">붙여넣을 곳
+              <a href="https://claude.ai/new" target="_blank" rel="noopener">Claude</a>
+              <a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT</a>
+              <a href="https://gemini.google.com" target="_blank" rel="noopener">Gemini</a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div style="height:48px"></div>
+  </div>
+</div>
+
+<div class="dock" id="dock">
+  <div class="wrap">
+    <button class="dock-copy" type="button" data-copy="#sheetBody" data-safe="1">지시서 복사</button>
+    <a class="dock-ask" id="dockAsk" href="https://www.yussamclass.com/76" target="_blank" rel="noopener">이 지시서로<br>강의 문의</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div><b>AI콘텐츠마케팅연구소 유쌤클래스 김유성 강사</b><br>민들레미디어 대표 · 친절한유성쌤<br>생성형 AI · 콘텐츠 제작 · 온라인마케팅 교육</div>
+    <div>
+      <a href="tel:01027819669">010-2781-9669</a> ·
+      <a href="mailto:kyseong3@naver.com">kyseong3@naver.com</a><br>
+      <a href="https://www.yussamclass.com/" target="_blank" rel="noopener">강사 홈페이지</a>
+        <a href="https://www.yussamclass.com/63" target="_blank" rel="noopener">강의 주제 보기</a><br>
+      2026 · 유쌤클래스 운영 · 지시서는 자유롭게 복사해 쓰시되, 재판매·유료 배포는 금합니다.
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast">복사했습니다</div>
+
+<script src="prompts.js"></script>
+<script>
+/* ================================================================
+   화면은 세 층이다. 1층 첫 화면 → 2층 목록 → 3층 상세.
+   층 이동은 주소 끝의 해시 값으로 가른다. 브라우저 뒤로 가기가 그대로 듣고,
+   지시서 하나를 링크로 보낼 수 있다.
+   페이지 안 이동에 <a href="#..."> 표기는 쓰지 않는다 (CLAUDE.md 기술 제약).
+   단추를 누르면 스크립트가 주소를 바꾼다.
+   ================================================================ */
+
+const SITS = ["회의·보고 정리","문서·글 쓰기","조사하고 확인하기","숫자·데이터 다루기",
+              "홍보하고 판매하기","응대하고 소통하기","기획하고 설계하기","가르치고 배우기",
+              "그림·영상·소리 만들기"];
+const PACKS = ["공통","업무혁신·AX/DX","AI 에이전트·자동화","데이터 분석·시각화",
+               "AI 콘텐츠·마케팅","미디어","창업·소상공인","농업·농협","중장년·시니어","교사·강사"];
+/* 모든 문의 버튼은 유쌤클래스의 공식 강의 요청 페이지로 연결한다. */
+const ASK_URL = "https://www.yussamclass.com/76";
+function askLink(){ return ASK_URL; }
+
+/* prompts.js가 실렸는지 먼저 본다. 없으면 목록과 상세는 열지 않고,
+   첫 화면과 변환기만 돌린다. 변환기는 지시서 데이터를 쓰지 않는다. */
+const hasData = typeof PROMPTS !== "undefined" && Array.isArray(PROMPTS) && PROMPTS.length > 0;
+
+const $ = id => document.getElementById(id);
+function esc(s){return String(s).replace(/[&<>]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[m]));}
+
+/* ---------- 검색 대상 문자열 ----------
+   3단계에서 이 함수만 손보면 검색이 강해진다. 화면 구조는 건드리지 않는다. */
+/* 띄어쓰기를 없애고 소문자로 맞춘다.
+   "회의록정리"로 쳐도 "회의록 정리"가 찾히게 하는 것이 목적이다. */
+function norm(s){ return String(s).toLowerCase().replace(/\s+/g,""); }
+
+/* 찾을 때마다 66장의 본문을 다시 훑지 않도록 미리 만들어 둔다.
+   앞자리(strong)는 제목·검색어·상황·분야·설명, 뒷자리(all)는 본문까지 전부다.
+   앞자리에 걸린 것을 위로 올린다. */
+let INDEX = [];
+function buildIndex(){
+  INDEX = PROMPTS.map(p=>({
+    p,
+    strong: norm(p.title+" "+(p.keywords||[]).join(" ")+" "+p.sit+" "+p.pack+" "+p.desc),
+    all:    norm(p.title+" "+p.desc+" "+p.cat+" "+p.pack+" "+p.sit+" "+
+                 (p.keywords||[]).join(" ")+" "+p.body+" "+p.need)
+  }));
+}
+
+/* 낱말을 여러 개 치면 모두 들어 있는 것만 찾는다.
+   "농산물 문구"처럼 떨어져 있는 두 낱말도 걸린다. */
+function search(k){
+  const tokens = String(k).toLowerCase().split(/\s+/).filter(Boolean);
+  if(!tokens.length) return PROMPTS.slice();
+  const front = [], back = [];
+  INDEX.forEach(e=>{
+    if(!tokens.every(t=>e.all.includes(t))) return;
+    (tokens.every(t=>e.strong.includes(t)) ? front : back).push(e.p);
+  });
+  return front.concat(back);
+}
+
+/* ---------- 1층 고르기 단추 ---------- */
+function buildPicker(){
+  $("sits").innerHTML = SITS.map(s=>{
+    const n = PROMPTS.filter(p=>p.sit===s).length;
+    return `<button class="sit" type="button" data-go="s/${encodeURIComponent(s)}">
+      <span class="nm">${esc(s)}</span><span class="ct">${n}장</span></button>`;
+  }).join("");
+
+}
+
+/* 목차 — 분야를 먼저 보여주고, 펼치면 제목이 나온다.
+   처음에는 모두 접어 둔다. 열 칸이 한눈에 들어와야 차림표로 읽힌다. */
+function buildToc(){
+  $("toc").innerHTML = PACKS.map(k=>{
+    const list = PROMPTS.filter(p=>p.pack===k);
+    return `<details class="toc-pack">
+      <summary>${esc(k)} <span class="ct">${list.length}장</span></summary>
+      <div class="toc-list">
+        ${list.map(p=>`<button class="toc-item" type="button" data-go="d/${p.id}">
+          <span class="n">${p.id.replace("SNB-","")}</span><span>${esc(p.title)}</span></button>`).join("")}
+        <button class="toc-more" type="button" data-go="p/${encodeURIComponent(k)}">${esc(k)} 목록으로 보기 →</button>
+      </div>
+    </details>`;
+  }).join("");
+}
+
+/* 좁은 화면 차림표 여닫기 */
+function bindNav(){
+  $("navToggle").onclick = ()=>{
+    const open = $("navlinks").classList.toggle("on");
+    $("navToggle").setAttribute("aria-expanded", open ? "true" : "false");
+    $("navToggle").textContent = open ? "✕" : "☰";
+  };
+}
+
+/* [모두 펼치기]는 접힌 것이 하나라도 있으면 모두 펴고, 다 펴져 있으면 모두 접는다 */
+function bindTocToggle(){
+  $("tocToggle").onclick = ()=>{
+    const packs = [...document.querySelectorAll(".toc-pack")];
+    const anyClosed = packs.some(d=>!d.open);
+    packs.forEach(d=>{ d.open = anyClosed; });
+    $("tocToggle").textContent = anyClosed ? "모두 접기" : "모두 펼치기";
+  };
+}
+
+/* ---------- 2층 목록 ---------- */
+function renderRows(list){
+  $("rows").innerHTML = list.map(p=>`
+    <button class="row" type="button" data-net="${p.net}" data-go="d/${p.id}">
+      <span class="row-main">
+        <span class="row-meta">
+          <span>${p.id}</span>
+          <span class="tag">${esc(p.pack)}</span>
+          ${p.net?'<span class="tag need">웹 검색 켜기</span>':''}
+        </span>
+        <span class="row-title">${esc(p.title)}</span>
+        <span class="row-desc">${esc(p.desc)}</span>
+      </span>
+      <span class="row-arrow" aria-hidden="true">›</span>
+    </button>`).join("");
+  $("empty").classList.toggle("on", list.length===0);
+}
+
+/* ---------- 3층 상세 ---------- */
+function renderSheet(p){
+  $("detailId").textContent = p.id;
+  $("detailTitle").textContent = p.title;
+  $("sheet").setAttribute("data-net", p.net);
+  $("sheetMeta").innerHTML =
+    `<span>${p.id}</span><span class="tag">${esc(p.pack)}</span>` +
+    `<span class="tag need">${p.net?"웹 검색 켜기":"자료: "+esc(p.need)}</span>`;
+  $("sheetTitle").textContent = p.title;
+  $("sheetDesc").textContent = p.desc;
+  $("sheetBody").textContent = p.body;
+  $("sheetSample").textContent = p.sample;
+  $("sheetNote").innerHTML = p.note;
+  $("sampleBox").classList.remove("open");
+  $("sampleBtn").textContent = "예시 자료 보기";
+  /* 어느 지시서를 보다 눌렀는지 문의 폼에 미리 담아 보낸다 */
+  $("dockAsk").href = askLink("["+p.id+" "+p.title+"] 이 지시서와 관련한 강의를 문의합니다.");
+}
+
+/* ---------- 라우터 ---------- */
+let lastList = "";        // 3층에서 [목록으로] 눌렀을 때 돌아갈 자리
+let listScrollY = 0;      // 목록에서 보던 스크롤 자리
+let pendingScroll = null; // 목록으로 돌아갈 때 되돌릴 스크롤 자리
+let lastCtx = "";         // 같은 맥락인지 가리는 값. 검색어만 바뀌면 같은 맥락으로 본다
+
+/* 스크롤 복원은 우리가 직접 한다. 브라우저에 맡기면 화면을 바꾼 뒤에
+   엉뚱한 자리로 되돌린다. */
+if("scrollRestoration" in history) history.scrollRestoration = "manual";
+
+function go(h){
+  if(!hasData && ["","forge","how","about"].indexOf(h) < 0) return;
+  if(location.hash.slice(1) === h){ route(); return; }
+  location.hash = h;
+}
+
+function parseHash(){
+  const raw = location.hash.slice(1);
+  if(!raw) return {v:"home"};
+  const i = raw.indexOf("/");
+  const key = i<0 ? raw : raw.slice(0,i);
+  let val = i<0 ? "" : raw.slice(i+1);
+  try{ val = decodeURIComponent(val); }catch(e){}
+  if(key==="forge") return {v:"forge"};
+  if(key==="how")   return {v:"how"};
+  if(key==="about") return {v:"about"};
+  if(key==="a")     return {v:"list", mode:"a",    val:""};
+  if(key==="s")     return {v:"list", mode:"sit",  val};
+  if(key==="p")     return {v:"list", mode:"pack", val};
+  if(key==="q")     return {v:"list", mode:"q",    val};
+  if(key==="d")     return {v:"detail", val};
+  return {v:"home"};
+}
+
+const VIEWS = ["home","list","detail","forge","how","about"];
+function show(name){
+  VIEWS.forEach(v=> $("view-"+v).classList.toggle("on", v===name));
+  $("navlinks").classList.remove("on");            // 화면을 옮기면 차림표를 닫는다
+  $("navToggle").setAttribute("aria-expanded","false");
+  $("navToggle").textContent = "☰";
+  const detail = name==="detail";
+  $("dock").classList.toggle("on", detail);
+  document.body.classList.toggle("has-dock", detail);
+}
+
+function route(){
+  const r = parseHash();
+  if(!hasData && ["home","forge","how","about"].indexOf(r.v) < 0){ show("home"); return; }
+  const wasList = $("view-list").classList.contains("on");
+  if(wasList) listScrollY = window.scrollY;
+
+  if(r.v==="home"){
+    lastCtx = "";
+    show("home");
+    window.scrollTo(0,0);
+    return;
+  }
+
+  if(r.v==="forge" || r.v==="how" || r.v==="about"){
+    lastCtx = "";
+    show(r.v);
+    window.scrollTo(0,0);
+    $({forge:"forgeTitle", how:"howTitle", about:"aboutTitle"}[r.v]).focus();
+    return;
+  }
+
+  if(r.v==="detail"){
+    const p = PROMPTS.find(x=>x.id===r.val);
+    if(!p){ go(""); return; }
+    renderSheet(p);
+    /* 링크를 타고 곧장 들어온 사람에게는 돌아갈 목록이 없다 */
+    $("detailBack").textContent = lastList ? "← 목록으로" : "← 처음으로";
+    show("detail");
+    window.scrollTo(0,0);
+    $("detailTitle").focus();
+    return;
+  }
+
+  /* 2층 목록 */
+  let list, where, title, query = "";
+  if(r.mode==="sit"){
+    list = PROMPTS.filter(p=>p.sit===r.val);
+    where = "상황으로 찾기"; title = r.val;
+  }else if(r.mode==="pack"){
+    list = PROMPTS.filter(p=>p.pack===r.val);
+    where = "분야로 찾기"; title = r.val;
+  }else if(r.mode==="q"){
+    query = r.val;
+    list = search(query);
+    where = "검색"; title = query ? `'${query}' 검색 결과` : "지시서 전체";
+  }else{
+    list = PROMPTS.slice();
+    where = "전체"; title = "지시서 전체";
+  }
+
+  /* 검색어만 바뀐 경우는 같은 맥락으로 본다.
+     글자를 칠 때마다 초점이 제목으로 튀면 글을 이어 칠 수 없다. */
+  const ctx = r.mode==="q" ? "q" : r.mode+"|"+r.val;
+  const sameCtx = lastCtx === ctx;
+  lastCtx = ctx;
+  lastList = location.hash.slice(1);
+
+  $("listWhere").textContent = where;
+  $("listTitle").textContent = title + " · " + list.length + "장";
+  if($("lq").value !== query) $("lq").value = query;
+  renderRows(list);
+
+  /* 0건은 "없다"로 끝내지 않는다. 무엇을 만들어야 하는지 알려주는 자리다.
+     검색어를 문의 주소에 실어 보낸다. */
+  const askable = list.length===0 && r.mode==="q" && query;
+  $("emptyAsk").style.display = askable ? "" : "none";
+  if(askable){
+    /* 문의 폼 6번 문항에 그대로 담겨 열린다. 한 줄짜리 칸이라 줄을 나누지 않는다. */
+    const line = "[지시서 요청] \"" + query + "\" — 이 업무에 쓸 지시서를 만들어 주십시오.";
+    $("askText").textContent = line;
+    $("askBtn").href = askLink(line);
+  }
+
+  show("list");
+
+  if(pendingScroll !== null){
+    window.scrollTo(0, pendingScroll);
+    pendingScroll = null;
+  }else if(!sameCtx){
+    window.scrollTo(0,0);
+    $("listTitle").focus();
+  }
+}
+
+window.addEventListener("hashchange", route);
+
+/* ---------- 단추 ---------- */
+document.addEventListener("click", e=>{
+  const g = e.target.closest("[data-go]");
+  if(g){ go(g.getAttribute("data-go")); return; }
+
+  /* 같은 화면 안에서 자리 옮기기. <a href="#..."> 대신 단추를 쓴다 */
+  const s = e.target.closest("[data-scroll]");
+  if(s){
+    const target = document.querySelector(s.getAttribute("data-scroll"));
+    if(!target) return;
+    const move = ()=>{
+      const y = Math.max(target.getBoundingClientRect().top + window.scrollY - 66, 0);
+      const before = window.scrollY;
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({top:y, behavior: reduce?"auto":"smooth"});
+      /* 부드러운 이동이 듣지 않는 환경이 있다. 잠시 뒤에도 그대로면 바로 옮긴다. */
+      setTimeout(()=>{ if(Math.abs(window.scrollY-before)<4) window.scrollTo(0,y); }, 400);
+    };
+    /* 다른 층에 있으면 먼저 첫 화면으로 돌아온 뒤 옮긴다 */
+    if(!$("view-home").classList.contains("on")){ go(""); setTimeout(move, 80); }
+    else move();
+    return;
+  }
+
+  const c = e.target.closest("[data-copy]");
+  if(c){
+    const el = document.querySelector(c.getAttribute("data-copy"));
+    if(el) copyText(c.dataset.safe ? el.textContent+"\n\n"+SAFE : el.textContent, c);
+    return;
+  }
+
+  if(e.target.closest("#sampleBtn")){
+    const open = $("sampleBox").classList.toggle("open");
+    $("sampleBtn").textContent = open ? "예시 자료 닫기" : "예시 자료 보기";
+  }
+});
+
+$("detailBack").onclick = ()=>{
+  if(lastList){ pendingScroll = listScrollY; go(lastList); }
+  else go("");
+};
+
+/* ---------- 검색 ---------- */
+$("homeForm").addEventListener("submit", e=>{
+  e.preventDefault();
+  go("q/"+encodeURIComponent($("q").value.trim()));
+});
+$("lq").addEventListener("input", e=>{
+  const v = e.target.value.trim();
+  /* 글자를 칠 때마다 기록을 쌓지 않도록 현재 주소를 갈아 끼운다 */
+  try{ location.replace("#q/"+encodeURIComponent(v)); }
+  catch(err){ route(); }
+});
+
+/* ---------- 알림과 복사 ---------- */
+function showToast(msg){
+  const t = $("toast");
+  t.textContent = msg; t.classList.add("on");
+  clearTimeout(showToast.t);
+  showToast.t = setTimeout(()=>t.classList.remove("on"),1600);
+}
+
+async function copyText(text, btn){
+  try{
+    await navigator.clipboard.writeText(text);
+  }catch(e){
+    const ta=document.createElement("textarea");
+    ta.value=text; ta.style.position="fixed"; ta.style.opacity="0";
+    document.body.appendChild(ta); ta.select();
+    try{document.execCommand("copy");}
+    catch(_){ showToast("복사가 되지 않았습니다. 글을 직접 선택해 복사해주십시오."); document.body.removeChild(ta); return; }
+    document.body.removeChild(ta);
+  }
+  showToast("복사했습니다. AI 화면에 붙여넣으십시오.");
+  if(btn){
+    const old=btn.textContent; btn.textContent="복사됨"; btn.classList.add("done");
+    setTimeout(()=>{btn.textContent=old; btn.classList.remove("done");},1600);
+  }
+}
+
+/* 모든 지시서에 공통으로 붙는 안전 문구.
+   3층의 [지시서 복사]와 아래 변환기가 함께 쓴다. 고칠 때는 여기 한 곳만 고친다.
+   1층 안전 문구 배너(#safetyText)는 말투가 달라 따로 둔다. */
+const SAFE =
+`[안전 문구]
+- 확신이 없으면 모른다고 답할 것
+- 빠지거나 모호한 정보는 추측하지 말고 나에게 먼저 물어볼 것
+- 내가 준 자료에 없는 사실·수치는 만들어내지 말 것`;
+
+/* ===== 지시서 변환기 =====
+   AI를 호출하지 않고, 붙여넣어 실행할 지시서를 조립해 준다. 이용료가 들지 않는다. */
+function line(label, val){ return val.trim() ? `\n${label} ${val.trim()}` : ""; }
+
+function buildUpgrade(){
+  const raw = $("upIn").value.trim();
+  const use = $("upUse").value;
+  const who = $("upWho").value;
+  const out = $("upOut");
+  if(!raw){
+    out.textContent = "위 칸에 지금 쓰고 계신 문장을 적으시면, 여기에 지시서가 만들어집니다.";
+    return;
+  }
+  out.textContent =
+`당신은 프롬프트 설계 전문가입니다.
+
+[내가 지금 쓰고 있는 문장]
+${raw}
+${line("[이 결과물을 쓰는 곳]", use)}${line("[읽는 사람]", who)}
+
+[요청]
+위 문장을 구체적이고 구조적인 전문가용 지시서로 다시 만들어주세요.
+
+[지시서에 반드시 넣을 것]
+1) 역할 — 당신이 누구로서 답할지
+2) 지시 — 무엇을 시킬지 (필요하면 단계로 나눠서)
+3) 맥락 — 이 결과물을 어디에 쓰고 누가 볼지
+4) 형식 — 출력 형태와 분량
+5) 예시 또는 금지사항
+6) 아래 안전 문구
+
+${SAFE}
+
+[만든 뒤에 함께 알려줄 것]
+- 원래 문장에서 무엇이 빠져 있었는지 3줄
+- 내가 매번 바꿔 쓸 부분은 {   } 로 비워둘 것
+- 위 정보만으로 부족하면, 지시서를 만들기 전에 나에게 먼저 물어볼 것`;
+}
+
+function buildNew(){
+  const job = $("newIn").value.trim();
+  const who = $("newWho").value;
+  const form = $("newForm").value;
+  const out = $("newOut");
+  if(!job){
+    out.textContent = "위 칸에 하시려는 일을 한 줄로 적으시면, 여기에 지시서가 만들어집니다.";
+    return;
+  }
+  out.textContent =
+`당신은 프롬프트 설계 전문가입니다.
+
+[내가 하려는 일]
+${job}
+${line("[읽거나 쓸 사람]", who)}${line("[원하는 결과 형태]", form)}
+
+[요청]
+이 일에 쓸 지시서를 구체적이고 구조적인 전문가용으로 만들어주세요.
+지금 답을 만들지 말고, 앞으로 반복해서 쓸 지시서 자체를 만들어주세요.
+
+[지시서에 반드시 넣을 것]
+1) 역할 — 당신이 누구로서 답할지
+2) 지시 — 무엇을 시킬지 (필요하면 단계로 나눠서)
+3) 맥락 — 이 결과물을 어디에 쓰고 누가 볼지
+4) 형식 — 출력 형태와 분량
+5) 예시 또는 금지사항
+6) 아래 안전 문구
+
+${SAFE}
+
+[만든 뒤에 함께 알려줄 것]
+- 내가 매번 바꿔 쓸 부분은 {   } 로 비워둘 것
+- 이 지시서를 쓰는 요령 3줄
+- 위 정보만으로 부족하면, 지시서를 만들기 전에 나에게 먼저 물어볼 것`;
+}
+
+["upIn","upUse","upWho"].forEach(id=>$(id).addEventListener("input", buildUpgrade));
+["newIn","newWho","newForm"].forEach(id=>$(id).addEventListener("input", buildNew));
+
+$("upClear").onclick=()=>{
+  ["upIn","upUse","upWho"].forEach(id=>$(id).value="");
+  buildUpgrade(); $("upIn").focus();
+};
+$("newClear").onclick=()=>{
+  ["newIn","newWho","newForm"].forEach(id=>$(id).value="");
+  buildNew(); $("newIn").focus();
+};
+
+document.querySelectorAll(".tab").forEach(t=>{
+  t.onclick=()=>{
+    document.querySelectorAll(".tab").forEach(x=>x.setAttribute("aria-selected", x===t?"true":"false"));
+    document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("on", p.id===t.getAttribute("aria-controls")));
+  };
+});
+
+/* ---------- 시작 ---------- */
+/* 개수는 데이터에서 읽는다. 지시서를 더해도 화면 글이 어긋나지 않는다. */
+function fillCounts(){
+  document.querySelectorAll("[data-count-prompts]").forEach(e=>e.textContent=PROMPTS.length);
+  document.querySelectorAll("[data-count-packs]").forEach(e=>e.textContent=PACKS.length);
+}
+
+bindNav();
+buildUpgrade();
+buildNew();
+
+/* prompts.js를 못 불러오는 경우가 있다. 파일 하나만 보여주는 미리보기 창이 그렇고,
+   두 파일을 따로 떼어 옮긴 경우도 그렇다.
+   그때 화면이 통째로 비면 방문자는 사이트가 망가진 줄 안다.
+   첫 화면은 그대로 두고 무슨 일인지만 알린다. 변환기는 데이터 없이도 돌아간다. */
+if(hasData){
+  buildIndex();
+  buildPicker();
+  buildToc();
+  bindTocToggle();
+  fillCounts();
+  route();
+}else{
+  /* 왜 못 불러왔는지 스스로 밝힌다. 원인마다 할 일이 다르다. */
+  const proto = location.protocol;
+  let msg;
+  if(proto === "http:" || proto === "https:"){
+    msg = "서버에서 <code>prompts.js</code>를 찾지 못했습니다. " +
+          "<code>index.html</code>과 같은 자리에 <code>prompts.js</code>가 함께 올라갔는지 확인해주십시오.";
+  }else if(proto === "file:"){
+    msg = "브라우저가 <code>prompts.js</code>를 읽지 못했습니다. " +
+          "두 파일이 <b>같은 폴더</b>에 있는지 확인해주십시오. " +
+          "<code>index.html</code>만 따로 옮기면 목록이 뜨지 않습니다.";
+  }else{
+    msg = "이 창은 파일 하나만 따로 띄운 미리보기입니다. 옆에 있는 <code>prompts.js</code>를 읽지 못합니다. " +
+          "<b>사이트가 고장 난 것이 아닙니다.</b> 브라우저에서 <code>index.html</code>을 직접 열거나, " +
+          "배포한 주소로 들어가시면 목록이 정상으로 나옵니다.";
+  }
+  $("warnBody").innerHTML = msg;
+  $("warnAddr").textContent = location.href.length > 120
+    ? location.href.slice(0,120) + "…" : location.href;
+
+  $("loadWarn").classList.add("on");
+  document.querySelector(".toc").style.display = "none";
+  /* 눌러도 아무 일이 없는 단추는 아예 감춘다 */
+  document.querySelectorAll('[data-go="a"]').forEach(b=>b.style.display="none");
+  $("q").disabled = true;
+  $("q").placeholder = "지시서 데이터를 불러오지 못했습니다";
+}
+</script>
+</body>
+</html>
