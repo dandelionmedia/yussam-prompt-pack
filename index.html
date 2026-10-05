@@ -607,6 +607,49 @@ button:not(.brand):focus-visible,.ask-btn:focus-visible,.btn-ask:focus-visible{o
 .navlinks .navlink{padding:14px 6vw;text-align:left;border-bottom:1px solid rgba(255,255,255,.08)}
 .prof-txt h2{overflow-wrap:anywhere;line-height:1.45}
 @media(max-width:560px){.brand{flex:1 1 100%}.topbar nav{width:100%;justify-content:flex-end}.brand span{font-size:14px}.topbar .wrap{gap:8px}}
+
+/* 가독성을 높인 반응형 빠른 메뉴 */
+.navlinks{
+  left:50%;right:auto;top:100%;width:min(840px,calc(100vw - 32px));
+  transform:translateX(-50%);margin-top:10px;padding:20px;
+  background:#F3F7FB;border:1px solid #D6E2EE;border-radius:20px;
+  box-shadow:0 20px 55px rgba(0,20,45,.28);gap:12px;
+  max-height:calc(100dvh - 160px);overflow:auto;
+  grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;
+}
+.navlinks.on{display:grid}
+.navlinks::before{
+  content:"빠른 메뉴";grid-column:1/-1;text-align:left;
+  padding:0 4px 4px;color:#163454;font-size:17px;font-weight:800;letter-spacing:-.02em;
+}
+.topbar nav .navlinks .navlink{
+  display:flex;align-items:center;justify-content:flex-start;min-height:72px;
+  padding:20px 22px;margin:0;background:#FFFFFF;color:#142D48;
+  border:1px solid #CBD9E7;border-radius:12px;box-shadow:none;
+  text-align:left;white-space:normal;word-break:keep-all;overflow-wrap:anywhere;
+  font-size:19px;font-weight:800;line-height:1.5;letter-spacing:-.025em;
+}
+.topbar nav .navlinks .navlink:hover{
+  background:#E8F1FA;border-color:#6497BE;color:#0A2947;
+}
+.topbar nav .navlinks .navpill-gold{
+  background:#FFF5DD;border:1px solid #C7A55C;color:#59400B;
+}
+.topbar nav .navlinks .navpill-gold:hover{background:#FFEBC0;color:#453007}
+.topbar nav .navlinks .navpill-teal{
+  background:#005965;border:1px solid #005965;color:#FFFFFF;
+}
+.topbar nav .navlinks .navpill-teal:hover{background:#00454F;color:#FFFFFF}
+.topbar nav .navlinks .navlink:focus-visible{
+  outline:3px solid #2B83C2;outline-offset:3px;
+}
+.navtoggle{min-width:46px;min-height:44px;border-radius:12px;font-size:22px}
+@media(max-width:560px){
+  .navlinks{width:calc(100vw - 24px);padding:14px;gap:10px;border-radius:16px;grid-template-columns:minmax(0,1fr);max-height:calc(100dvh - 174px)}
+  .topbar nav .navlinks .navlink{min-height:58px;padding:15px 18px;font-size:18px;line-height:1.5}
+  .navlinks::before{font-size:16px;padding-bottom:2px}
+}
+
 </style>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%274%27 fill=%27%23002D5A%27/%3E%3Cpath d=%27M9 6h14v20H9z%27 fill=%27white%27/%3E%3Cpath d=%27M12 11h8M12 15h8M12 19h5%27 stroke=%27%23017A84%27 stroke-width=%272%27/%3E%3C/svg%3E">
 </head>
@@ -622,10 +665,10 @@ button:not(.brand):focus-visible,.ask-btn:focus-visible,.btn-ask:focus-visible{o
         <button type="button" class="navlink" data-go="forge">지시서 만들기</button>
         <button type="button" class="navlink" data-go="how">지시서 활용법</button>
         <a class="navlink navpill navpill-gold" href="https://www.yussamclass.com/32" target="_blank" rel="noopener">김유성 강사 소개 ↗</a>
-        <a class="navlink navpill navpill-teal" href="https://pk-pdca-bridge-recreation.yuseong-kim.chatgpt.site" target="_blank" rel="noopener">PK-PDCA 브릿지 ↗</a>
+        <a class="navlink navpill navpill-teal" href="https://dandelionmedia.github.io/yussam_ai_bridge/" target="_blank" rel="noopener">PK-PDCA 브릿지 ↗</a>
       </div>
       <a class="btn-ask" href="https://www.yussamclass.com/76" target="_blank" rel="noopener">강의 요청 ↗</a>
-      <button type="button" class="navtoggle" id="navToggle" aria-expanded="false" aria-controls="navlinks" aria-label="차림표 열기">☰</button>
+      <button type="button" class="navtoggle" id="navToggle" aria-expanded="false" aria-controls="navlinks" aria-label="메뉴 열기">☰</button>
     </nav>
   </div>
 </div>
@@ -1092,6 +1135,7 @@ function bindNav(){
     const open = $("navlinks").classList.toggle("on");
     $("navToggle").setAttribute("aria-expanded", open ? "true" : "false");
     $("navToggle").textContent = open ? "✕" : "☰";
+    $("navToggle").setAttribute("aria-label", open ? "메뉴 닫기" : "메뉴 열기");
   };
 }
 
@@ -1182,6 +1226,7 @@ function show(name){
   $("navlinks").classList.remove("on");            // 화면을 옮기면 차림표를 닫는다
   $("navToggle").setAttribute("aria-expanded","false");
   $("navToggle").textContent = "☰";
+  $("navToggle").setAttribute("aria-label","메뉴 열기");
   const detail = name==="detail";
   $("dock").classList.toggle("on", detail);
   document.body.classList.toggle("has-dock", detail);
