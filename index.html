@@ -1551,5 +1551,11 @@ if(hasData){
   $("q").placeholder = "지시서 데이터를 불러오지 못했습니다";
 }
 </script>
+<script>
+/* 브라우저 기본 우클릭 메뉴를 제한합니다. 소스를 숨기는 보안 기능은 아닙니다. */
+document.addEventListener("contextmenu", function (event) {
+  event.preventDefault();
+}, { capture: true });
+</script>
 </body>
 </html>
